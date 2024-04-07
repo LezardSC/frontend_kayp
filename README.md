@@ -13,9 +13,10 @@ Our solution addresses critical industry challenges, the efficient and secure:
 # Getting Started
 Follow these steps to clone the repository and start the development server:
 
-- clone the [backend repository](https://github.com/theocerdan/kayp_ebl_api)
-- `mvn clean install`
-- `java -jar`
+- `cd frontend`
+- `npm install`
+- `npm run dev`
+- clone the [backend repository](https://github.com/theocerdan/kayp_ebl_api) and follow the instructions
 
 # Front-end
 This using the following stack:
