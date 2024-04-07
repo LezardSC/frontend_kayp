@@ -34,7 +34,8 @@ This using the following stack:
 
 | Pages                                                                       | Specifications              | Preview
 |:----------------------------------------------------------------------------|:----------------------------|------------------------------------------------------------------------------------------------------
-| [Login](https://localhost:5173/log-in)                                      | Login page                  | ![image](https://github.com/Atroooo/BPELO/assets/76119301/cbf9f17e-e0a2-463b-b8cd-c1328db440a8)     |
-| [Dashboard](https://localhost:5173/)              | Dashboard                   		            |													  |
-| [Create eBL](https://localhost:5173/bol/create)    | Create a new eBL            			    | /////////////////////////////////////////////////////////////// |
-| [List eBL](https://localhost:5173/bol/list) | List and manage all the eBL 			    | ////////////////////////////////////////////////////////////////
+| [Login](https://localhost:5173/log-in)                                      | Login page                  | ![screenkayp1](https://github.com/theocerdan/frontend_kayp/assets/117669219/019b524a-60b3-4b4e-b3b8-449f7daea35c)     |
+| [Dashboard](https://localhost:5173/)              | Dashboard                   		            |	![screenkayp2](https://github.com/theocerdan/frontend_kayp/assets/117669219/35cb3744-958f-4023-9527-c4a96ae8755c)										  |
+| [Create eBL](https://localhost:5173/bol/create)    | Create a new eBL            			    | ![screenkayp3](https://github.com/theocerdan/frontend_kayp/assets/117669219/1539de40-6bb1-45aa-8b72-873858870d62) |
+| [List eBL](https://localhost:5173/bol/list) | List and manage all the eBL 			    | ![screenkayp4](https://github.com/theocerdan/frontend_kayp/assets/117669219/d773a008-2cb9-4d2f-b40c-905233835340)
+

@@ -74,6 +74,7 @@ export default function Sidebar2({
               ></line>
               <span className='sr-only'>Website Name</span>
             </svg>
+
             <div
               className={`flex flex-col justify-end truncate ${isCollapsed ? 'invisible w-0' : 'visible w-auto'}`}
             >
