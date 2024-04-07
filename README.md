@@ -1,66 +1,39 @@
-# Shadcn Admin Dashboard
+![Color_logo_with_background](https://github.com/theocerdan/kayp_ebl_api/assets/117669219/36bba7d8-8489-4d0b-9271-71cb17b976f0)
 
-Admin Dashboard UI crafted with Shadcn and Vite. Built with responsiveness and accessibility in mind.
+# What is KAYP ?
 
-![alt text](public/images/shadcn-admin.png)
+KAYP aims to transform the maritime industry by digitalizing document trade, starting with the bill of lading.
 
-I've been creating dashboard UIs at work and for my personal projects. I always wanted to make a reusable collection of dashboard UI for future projects; and here it is now. While I've created a few custom components, some of the code is directly adapted from ShadcnUI examples.
+Our solution addresses critical industry challenges, the efficient and secure:
 
-> This is not a starter project (template) though. I'll probably make one in the future.
+- Generation: Features intuitive and user-friendly input, enabling businesses to save time and minimize entry errors.
+- Exchange: Utilizes a virtual service powered by blockchain to encrypt and authenticate document exchanges.
+- Storage: Employs blockchain technology for auditing all documents, preserving an immutable record of documents and all user-provided data with the highest level of security
 
-## Features
+# Getting Started
+Follow these steps to clone the repository and start the development server:
 
-- Light/dark mode
-- Responsive
-- Accessible
-- Sidebar and header layouts
-- 10+ pages
-- Extra custom components
+- `clone the backend repository at https://github.com/theocerdan/kayp_ebl_api`
+- `mvn clean install`
+- `java -jar`
 
-## Tech Stack
+# Front-end
+This using the following stack:
 
-**UI:** [ShadcnUI](https://ui.shadcn.com) (TailwindCSS + RadixUI)
+- Language - [TypeScript](https://www.typescriptlang.org)
+- Styling - [Tailwind CSS](https://tailwindcss.com)
+- Components - [Shadcn-ui](https://ui.shadcn.com)
+- Schema Validations - [Zod](https://zod.dev)
+- State Management - [Zustand](https://zustand-demo.pmnd.rs)
+- Forms - [React Hook Form](https://ui.shadcn.com/docs/components/form)
+- Linting - [ESLint](https://eslint.org)
+- Formatting - [Prettier](https://prettier.io)
 
-**Build Tool:** [Vite](https://vitejs.dev/)
+## Pages
 
-**Routing:** [React Router](https://reactrouter.com/en/main)
-
-**Type Checking:** [TypeScript](https://www.typescriptlang.org/)
-
-**Linting/Formatting:** [Eslint](https://eslint.org/) & [Prettier](https://prettier.io/)
-
-**Icons:** [Tabler Icons](https://tabler.io/icons)
-
-## Run Locally
-
-Clone the project
-
-```bash
-  git clone https://github.com/satnaing/shadcn-admin.git
-```
-
-Go to the project directory
-
-```bash
-  cd shadcn-admin
-```
-
-Install dependencies
-
-```bash
-  pnpm install
-```
-
-Start the server
-
-```bash
-  pnpm run dev
-```
-
-## Author
-
-Crafted with 🤍 by [@satnaing](https://github.com/satnaing)
-
-## License
-
-Licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
+| Pages                                                                       | Specifications              | Preview
+|:----------------------------------------------------------------------------|:----------------------------|------------------------------------------------------------------------------------------------------
+| [Login](https://localhost:5173/log-in)                                      | Login page                  | ![image](https://github.com/Atroooo/BPELO/assets/76119301/cbf9f17e-e0a2-463b-b8cd-c1328db440a8)     |
+| [Dashboard](https://localhost:5173/)              | Dashboard                   		            |													  |
+| [Create eBL](https://localhost:5173/bol/create)    | Create a new eBL            			    | /////////////////////////////////////////////////////////////// |
+| [List eBL](https://localhost:5173/bol/list) | List and manage all the eBL 			    | ////////////////////////////////////////////////////////////////
