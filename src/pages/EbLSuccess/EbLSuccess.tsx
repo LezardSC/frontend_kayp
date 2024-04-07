@@ -17,6 +17,8 @@ import { IconFileDownload } from '@tabler/icons-react'
 import { Document, Page, pdfjs } from 'react-pdf'
 import Snowfall from 'react-snowfall'
 import { useEffect, useState } from 'react'
+import { image, image2, image3 } from '@/data/xrpImages.ts'
+import { useSearchParams } from 'react-router-dom'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
@@ -42,44 +44,38 @@ export function StepperDemo() {
 
 export default function EbLSuccess() {
   const { width, height } = useWindowSize()
-  const [isLoaded, setisLoaded] = useState(false)
-  const xrpLogo1 = new Image()
-  useEffect(() => {
-    xrpLogo1.src = '/Users/neoff/Documents/frontend_kayp/src/assets/xrp.svg'
 
-    xrpLogo1.onload = () => {
-      setisLoaded(true)
-    }
-  }, [])
+  const snowflake1 = document.createElement('img')
+  snowflake1.src = image;
+  const snowflake2 = document.createElement('img')
+  snowflake2.src = image2;
+  const snowflake3 = document.createElement('img')
+  snowflake3.src = image3;
+  const images = [snowflake3]
 
-  // const xrpLogo2 = new Image()
-  // xrpLogo2.src = '/Users/neoff/Documents/frontend_kayp/src/assets/xrp.svg'
+  const [searchParams] = useSearchParams();
 
-  // let img = new Image()
+  // Get a specific query parameter
+  const myParam = searchParams.get('id');
 
-  // img.width = 1337
-  // img.height = 13.37
-
-  // img.onload = function () {
-  //   // context.drawImage(this, 0, 0)
-  // }
-
-  // img.src = 'data:...'
-
-  const images = [xrpLogo1]
 
   return (
     <>
-      {isLoaded && (
+      <Confetti width={width} height={height} />
         <Snowfall
           // Applied to the canvas element
-          style={{ background: '#fff' }}
           // Controls the number of snowflakes that are created (default 150)
-          snowflakeCount={200}
+          snowflakeCount={100}
           // Pass in the images to be used
           images={images}
+          radius={[15, 30]}
+          style={{
+            position: 'fixed',
+            width: '100vw',
+            height: '100vh',
+            zIndex: 50
+          }}
         ></Snowfall>
-      )}
 
       <PageLayout title={'Your eBL is on chain !'} description={'Bravo !'}>
         <div className={'flex flex-col gap-5'}>
@@ -114,7 +110,7 @@ export default function EbLSuccess() {
                 <Button className={'gap-1.5'}>
                   <Book />
                   <a
-                    href='https://ghostnet.tzkt.io/KT1MvGPyXNvNNwEAc286Xtw9Xgv5B5vBFHg3/operations/'
+                    href={'https://testnet.xrpl.org/nft/' + myParam}
                     target='_blank'
                   >
                     On chain proof

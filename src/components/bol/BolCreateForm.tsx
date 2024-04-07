@@ -1,5 +1,4 @@
-import { SubmitHandler, useForm } from 'react-hook-form'
-import { BillOfLading } from '@/types/BillOfLading.ts'
+
 import { Input } from '../ui/input.tsx'
 import { CardContent } from '@/components/ui/card.tsx'
 import { Label } from '@/components/ui/label.tsx'
@@ -20,7 +19,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Textarea } from '@/components/ui/textarea.tsx'
 import {
   Select,
@@ -31,8 +30,9 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { commercialPorts } from '../../data/CommercialPorts.tsx'
-import { Link } from 'react-router-dom'
-// import { createBol } from '../../services/bolService.tsx'
+import { useNavigate } from 'react-router-dom'
+import { createBol } from '@/services/bolService.tsx'
+import { Progress } from "@/components/ui/progress"
 
 const bol = {
   shipper: {
@@ -54,103 +54,111 @@ const bol = {
 }
 
 export function BolCreateForm() {
-  const { handleSubmit, register } = useForm<BillOfLading>({
-    defaultValues: bol,
-  })
-  const onSubmit: SubmitHandler<BillOfLading> = (data) => console.log(data)
+
+  const navigate = useNavigate();
+  const [isLoading, setLoading] = useState<boolean>(false);
+  const [progress, setProgress] = useState(13)
+
+  const handleSubmit = () => {
+    setLoading(true)
+    setProgress(33)
+    createBol().then((data) => {
+      setProgress(80)
+      setTimeout(() => {
+        navigate("../success?id=" + data);
+        console.log(data)
+        setLoading(false);
+      }, 500)
+    });
+  }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='mt-14 h-full w-full'>
-      <CardContent className={'flex flex-col gap-7'}>
-        <div className={'grid w-full grid-cols-2 gap-3'}>
-          <BolInputLayout
-            title={'Shipper'}
-            description={'add required shipper details'}
-            icon={<Ship width={20} />}
-          >
-            <Label className={'text-left'}>Name</Label>
-            <Input
-              type='text'
-              placeholder='Name'
-              {...register('shipper.name')}
-            />
-            <Label className={'text-left'}>Address</Label>
-            <Input
-              type='text'
-              placeholder='Address'
-              {...register('shipper.address')}
-            />
+    <div className={"flex flex-col  h-full w-full"}>
+      <form className='mt-14 h-full w-full'>
+        <CardContent className={'flex flex-col gap-7'}>
+          <div className={'grid w-full grid-cols-2 gap-3'}>
+            <BolInputLayout
+              title={'Shipper'}
+              description={'add required shipper details'}
+              icon={<Ship width={20} />}
+            >
+              <Label className={'text-left'}>Name</Label>
+              <Input
+                type='text'
+                placeholder='Name'
+              />
+              <Label className={'text-left'}>Address</Label>
+              <Input
+                type='text'
+                placeholder='Address'
+              />
+            </BolInputLayout>
+            <BolInputLayout
+              title={'Consignee'}
+              description={'add required consignee details'}
+              icon={<Flag width={20} />}
+            >
+              <Label className={'text-left'}>Name</Label>
+              <Input
+                type='text'
+                placeholder='Name'
+              />
+              <Label className={'text-left'}>Address</Label>
+              <Input
+                type='text'
+                placeholder='Address'
+              />
+            </BolInputLayout>
+          </div>
+          <Separator />
+          <div className={'grid w-full grid-cols-2 gap-3'}>
+            <BolInputLayout
+              title={'Cargo'}
+              description={'add required cargo details'}
+              icon={<Package width={20} />}
+            >
+              <Label className={'text-left'}>Name</Label>
+              <Input
+                type='text'
+                placeholder='Description'
+              />
+              <Label className={'text-left'}>Value</Label>
+              <Input
+                type='text'
+                placeholder='Value'
+              />
+            </BolInputLayout>
+            <BolInputLayout
+              title={'Vessels'}
+              description={'add required vessels details'}
+              icon={<Map width={20} />}
+            >
+              <Label className={'text-left'}>Loading Port</Label>
+              <CommercialPortSelect defaultValue={commercialPorts[1]} />
+              <Label className={'text-left'}>Destination Port</Label>
+              <CommercialPortSelect defaultValue={commercialPorts[11]} />
+              <Label className={'text-left'}>Date of loading</Label>
+              <BolDatePicker />
+            </BolInputLayout>
+          </div>
+          <Separator />
+          <BolInputLayout title={'Additional information'}>
+            <Textarea />
           </BolInputLayout>
-          <BolInputLayout
-            title={'Consignee'}
-            description={'add required consignee details'}
-            icon={<Flag width={20} />}
-          >
-            <Label className={'text-left'}>Name</Label>
-            <Input
-              type='text'
-              placeholder='Name'
-              {...register('consignee.name')}
-            />
-            <Label className={'text-left'}>Address</Label>
-            <Input
-              type='text'
-              placeholder='Address'
-              {...register('consignee.address')}
-            />
-          </BolInputLayout>
-        </div>
-        <Separator />
-        <div className={'grid w-full grid-cols-2 gap-3'}>
-          <BolInputLayout
-            title={'Cargo'}
-            description={'add required cargo details'}
-            icon={<Package width={20} />}
-          >
-            <Label className={'text-left'}>Name</Label>
-            <Input
-              type='text'
-              placeholder='Description'
-              {...register('cargo.description')}
-            />
-            <Label className={'text-left'}>Value</Label>
-            <Input
-              type='text'
-              placeholder='Value'
-              {...register('cargo.value')}
-            />
-          </BolInputLayout>
-          <BolInputLayout
-            title={'Vessels'}
-            description={'add required vessels details'}
-            icon={<Map width={20} />}
-          >
-            <Label className={'text-left'}>Loading Port</Label>
-            <CommercialPortSelect defaultValue={commercialPorts[1]} />
-            <Label className={'text-left'}>Destination Port</Label>
-            <CommercialPortSelect defaultValue={commercialPorts[11]} />
-            <Label className={'text-left'}>Date of loading</Label>
-            <BolDatePicker />
-          </BolInputLayout>
-        </div>
-        <Separator />
-        <BolInputLayout title={'Additional information'}>
-          <Textarea />
-        </BolInputLayout>
-        <Link to={'/success'} className='flex justify-center'>
-          <Button className=' h-14 px-24'>Emit bill of lading</Button>
-        </Link>
-      </CardContent>
-    </form>
+          {isLoading  && <Progress value={progress} className="w-[100%]" />}
+        </CardContent>
+      </form>
+      <Button disabled={isLoading} className=' h-14 px-24' onClick={handleSubmit}>Emit bill of lading</Button>
+    </div>
   )
 }
 
 export function BolInputLayout({
-  children,
-  title,
-  description,
-  icon,
-}: {
+                                 children,
+                                 title,
+                                 description,
+                                 icon,
+                               }: {
   children: React.ReactNode
   title: string
   description?: string
@@ -200,8 +208,8 @@ export function BolDatePicker() {
 }
 
 export function CommercialPortSelect({
-  defaultValue,
-}: {
+                                       defaultValue,
+                                     }: {
   defaultValue?: string
 }) {
   return (
