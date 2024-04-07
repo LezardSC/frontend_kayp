@@ -20,27 +20,9 @@ export default function SignIn() {
             >
               <path d='M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3' />
             </svg>
-            Shadcn Admin
+            Kayp Admin
           </div>
 
-          <img
-            src={ViteLogo}
-            className='relative m-auto'
-            width={301}
-            height={60}
-            alt='Vite'
-          />
-
-          <div className='relative z-20 mt-auto'>
-            <blockquote className='space-y-2'>
-              <p className='text-lg'>
-                &ldquo;This library has saved me countless hours of work and
-                helped me deliver stunning designs to my clients faster than
-                ever before.&rdquo;
-              </p>
-              <footer className='text-sm'>Sofia Davis</footer>
-            </blockquote>
-          </div>
         </div>
         <div className='lg:p-8'>
           <div className='mx-auto flex w-full flex-col justify-center space-y-2 sm:w-[350px]'>

@@ -117,7 +117,7 @@ export default function EbLSuccess() {
                     href='https://ghostnet.tzkt.io/KT1MvGPyXNvNNwEAc286Xtw9Xgv5B5vBFHg3/operations/'
                     target='_blank'
                   >
-                    On chain proof (Ghostnet)
+                    On chain proof
                   </a>
                 </Button>
               </div>
