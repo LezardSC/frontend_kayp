@@ -37,7 +37,6 @@ const router = createBrowserRouter([
       const AppShell = await import('./components/app-shell')
       return { Component: AppShell.default }
     },
-    errorElement: <GeneralError />,
     children: [
       {
         index: true,
@@ -46,21 +45,21 @@ const router = createBrowserRouter([
         }),
       },
       {
-        path: 'tasks',
+        path: 'create-ebl',
         lazy: async () => ({
-          Component: (await import('./pages/tasks')).default,
+          Component: (await import('./pages/EbLCreate/BolCreate')).default,
         }),
       },
       {
-        path: 'chats',
+        path: 'success',
         lazy: async () => ({
-          Component: (await import('@/components/coming-soon')).default,
+          Component: (await import('./pages/EbLSuccess/EbLSuccess')).default,
         }),
       },
       {
-        path: 'users',
+        path: 'ebl-history',
         lazy: async () => ({
-          Component: (await import('@/components/coming-soon')).default,
+          Component: (await import('./pages/EbLHistory/EbLHistory')).default,
         }),
       },
       {

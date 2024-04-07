@@ -39,15 +39,15 @@ export const sidelinks: SideLink[] = [
     icon: <IconLayoutDashboard size={18} />,
   },
   {
-    title: 'Tasks',
-    label: '3',
-    href: '/tasks',
+    title: 'Create eBL',
+    label: '',
+    href: '/create-ebl',
     icon: <IconChecklist size={18} />,
   },
   {
-    title: 'Users',
-    label: '',
-    href: '/users',
+    title: 'EbL History',
+    label: '3',
+    href: '/ebl-history',
     icon: <IconUsers size={18} />,
   },
   {
